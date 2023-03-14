@@ -1,44 +1,55 @@
-﻿var name = "Ewa";
-var sex = 'K'; 
-var age = 33;
+﻿using System;
 
-if (sex == 'K')
+int numbers = -236111011;
+string numberInString = numbers.ToString();
+char[] number  = numberInString.ToCharArray();
+int[] tab = new int[11];
+
+foreach (char singe in number)
 {
-    if (age < 33)
+    if (singe == '0')
     {
-        Console.WriteLine("Kobieta poniżej 33 lat");
+        tab[0]++;
     }
-
-    else if (age > 33)
+    else if (singe == '1')
     {
-        Console.WriteLine("Kobieta powyżej 33 lat");
+        tab[1]++;
     }
-
-    else if (age == 33 && name == "Ewa")
+    else if (singe == '2')
     {
-        Console.WriteLine("Ewa, lat 33");
+        tab[2]++;
     }
-
+    else if (singe == '3')
+    {
+        tab[3]++;
+    }
+    else if (singe == '4')
+    {
+        tab[4]++;
+    }
+    else if (singe == '5')
+    {
+        tab[5]++;
+    }
+    else if (singe == '6')
+    {
+        tab[6]++;
+    }
+    else if (singe == '7')
+    {
+        tab[7]++;
+    }
+    else if (singe == '8')
+    {
+        tab[8]++;
+    }
+    else if (singe == '9')
+    {
+        tab[9]++;
+    }
     else
     {
-        Console.WriteLine("Kobieta lat 33");
+        tab[10]++;
     }
 }
-
-else if (sex == 'M')
-{
-    if(age >= 18)
-    {
-        Console.WriteLine("Pelnoletni Mężczyzna");
-    }
-
-    else
-    {
-        Console.WriteLine("Niepelnoletni Mężczyzna");
-    }
-}
-
-else
-{
-    Console.WriteLine("Nie jesteś Kobietą ani Mężczyzną");
-}
+Console.WriteLine($" W danej {numbers} znajdują się: \n0- {tab[0]} \n1- {tab[1]} \n2- {tab[2]} \n3- {tab[3]} \n4- {tab[4]} \n5- {tab[5]} \n6- {tab[6]} \n7- {tab[7]} \n8- {tab[8]} \n9- {tab[9]} \nInne- {tab[10]} ");
