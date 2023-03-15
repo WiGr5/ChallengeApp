@@ -1,55 +1,31 @@
-﻿using System;
+﻿using ChallengeApp;
 
-int numbers = -236111011;
-string numberInString = numbers.ToString();
-char[] number  = numberInString.ToCharArray();
-int[] tab = new int[11];
+Employe employe1 = new Employe("Wioletta",      "Kowalska",  26, 0);
+Employe employe2 = new Employe("Grzegoz",       "Kowalski",  34, 0);
+Employe employe3 = new Employe("Adam",          "Malinowski",32, 0);
+Employe employe4 = new Employe("Aleksandra",    "Rojek",     41, 0);
+Employe employe5 = new Employe("Roman",         "Zielinski", 35, 0);
 
-foreach (char singe in number)
+employe1.AddScore(2); employe1.AddScore(5); employe1.AddScore(3); employe1.AddScore(6); employe1.AddScore(1);
+employe2.AddScore(8); employe2.AddScore(5); employe2.AddScore(6); employe2.AddScore(4); employe2.AddScore(2);
+employe3.AddScore(2); employe3.AddScore(6); employe3.AddScore(4); employe3.AddScore(3); employe3.AddScore(5);
+employe4.AddScore(5); employe4.AddScore(2); employe4.AddScore(3); employe4.AddScore(4); employe4.AddScore(3);
+employe5.AddScore(3); employe5.AddScore(4); employe5.AddScore(1); employe5.AddScore(3); employe5.AddScore(2);
+
+List<Employe> employes = new List<Employe>()
 {
-    if (singe == '0')
+employe1, employe2, employe3, employe4, employe5
+};
+
+Employe employeBestScore = null;
+int employeScore = 0;
+
+foreach (Employe employe in employes)
+{
+    if (employe.ResultScore > employeScore)
     {
-        tab[0]++;
-    }
-    else if (singe == '1')
-    {
-        tab[1]++;
-    }
-    else if (singe == '2')
-    {
-        tab[2]++;
-    }
-    else if (singe == '3')
-    {
-        tab[3]++;
-    }
-    else if (singe == '4')
-    {
-        tab[4]++;
-    }
-    else if (singe == '5')
-    {
-        tab[5]++;
-    }
-    else if (singe == '6')
-    {
-        tab[6]++;
-    }
-    else if (singe == '7')
-    {
-        tab[7]++;
-    }
-    else if (singe == '8')
-    {
-        tab[8]++;
-    }
-    else if (singe == '9')
-    {
-        tab[9]++;
-    }
-    else
-    {
-        tab[10]++;
+        employeBestScore = employe;
+        employeScore= employe.ResultScore;
     }
 }
-Console.WriteLine($" W danej {numbers} znajdują się: \n0- {tab[0]} \n1- {tab[1]} \n2- {tab[2]} \n3- {tab[3]} \n4- {tab[4]} \n5- {tab[5]} \n6- {tab[6]} \n7- {tab[7]} \n8- {tab[8]} \n9- {tab[9]} \nInne- {tab[10]} ");
+Console.WriteLine($" Pracownik {employeBestScore.Name} {employeBestScore.Surname} w wieku {employeBestScore.Age} zdobył {employeScore} punków gratulujemy");
