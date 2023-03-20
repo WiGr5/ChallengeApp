@@ -28,4 +28,4 @@ foreach (Employe employe in employes)
         employeScore= employe.ResultScore;
     }
 }
-Console.WriteLine($" Pracownik {employeBestScore.Name} {employeBestScore.Surname} w wieku {employeBestScore.Age} zdobył {employeScore} punków gratulujemy");
+Console.WriteLine($" Pracownik {employeBestScore.Name} {employeBestScore.Surname} w wieku {employeBestScore.Age} lat zdobył {employeScore} punków gratulujemy");

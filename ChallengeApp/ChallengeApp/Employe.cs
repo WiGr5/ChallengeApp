@@ -17,7 +17,6 @@
         {
             this.score.Add(score);
         }
-
         public int ResultScore
         {
             get
