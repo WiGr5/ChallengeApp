@@ -6,22 +6,57 @@ namespace UserTest
     {
 
         [Test]
-        public void WhenEmployeAddPoint_ShouldReturnUserResult()
+        public void ReferenceTypeTest()
         {
             Assert.Pass();
 
             //Arrange
-            var employe1 = new Employe("Andzej", "Kowalski", 26, 0);
-            employe1.AddScore(2);
-            employe1.AddScore(5);
-            employe1.AddScore(3);
-            employe1.AddScore(-6);
-            employe1.AddScore(-1);
+            var employer1 = GetEmployer("Andzej", "Kowalski", 31, 10);
+            var employer2 = GetEmployer("Andzej", "Kowalski", 31, 10);
 
             //Act
-            var result = employe1.ResultScore;
+            
             //Assert
-            Assert.AreEqual(3, result);
+            Assert.AreEqual(employer1, employer2);
+        }
+
+        private Employe GetEmployer(string name,string surname, int age, int score) 
+        {
+            return new Employe(name, surname, age, score);  
+        }
+
+        [Test]
+        public void IntTypeTest()
+        {
+            //Arrange
+            int intValues1 = 1;
+            int intValues2 = 1;
+            //Act
+
+            //Assert
+            Assert.AreEqual(intValues1, intValues2);
+        }
+        [Test]
+        public void FloatTypeTest()
+        {
+            //Arrange
+            float floatValues1 = 1.2f;
+            float floatValues2 = 1.2f;
+            //Act
+
+            //Assert
+            Assert.AreEqual(floatValues1, floatValues2);
+        }
+        [Test]
+        public void StringTypeTest()
+        {
+            //Arrange
+            string stringValues1 = "Name";
+            string stringValues2 = "Name";
+            //Act
+
+            //Assert
+            Assert.AreEqual(stringValues1, stringValues2);
         }
     }
 }
