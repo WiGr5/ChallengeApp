@@ -7,7 +7,7 @@ namespace UserTest
 
         [Test]
         public void ReferenceTypeTest()
-        {
+        {  
             Assert.Pass();
 
             //Arrange
