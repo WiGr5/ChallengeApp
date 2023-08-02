@@ -13,15 +13,23 @@ while (true)
     Console.WriteLine("Podaj ocene pracownika");
     Console.WriteLine("w Celu wyjscia z dodawania ocen wciścnij: Q ");
     var input = Console.ReadLine();
-    
-    
-    employee.AddGrade(input);
+
     if (input == "q" || input == "Q")
     {
         break;
     }
+
+    try
+    {
+        employee.AddGrade(input);
+    }
+    catch(Exception ex) 
+    {
+        Console.WriteLine($"Catch Exception: {ex.Message}");
+    }
+
 }
 var statistic = employee.GetStatistics();
 Console.WriteLine($"Najniższ ocena pracownika: {statistic.Min}");
 Console.WriteLine($"Najwyższa ocena pracownika: {statistic.Max}");
-Console.WriteLine($"Pracownik otrzymał srednią ilosc {statistic.Average} punktów i otrzymuje ocene: {statistic.AverageLetter}");
+Console.WriteLine($"Pracownik otrzymał srednią ilosc {statistic.Average:N2} punktów i otrzymuje ocene: {statistic.AverageLetter}");
