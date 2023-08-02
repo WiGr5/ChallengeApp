@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Design;
+using System.Data;
 
 namespace ChallengeApp
 {
@@ -7,7 +8,7 @@ namespace ChallengeApp
         private List<float> grades = new List<float>();
         public Employee()
         {
-           
+
         }
 
         public Employee(string name, string surname)
@@ -27,7 +28,7 @@ namespace ChallengeApp
             }
             else
             {
-                Console.WriteLine("Poza zakresem 0-100");
+                throw new Exception("Poza zakresem 0-100");
             }
         }
         public void AddGrade(string grade)
@@ -37,14 +38,15 @@ namespace ChallengeApp
                 this.AddGrade(result);
             }
             else if (char.TryParse(grade, out char charresult))
-            { 
-                this.AddGrade(charresult); 
-            }
-            else if (true)
             {
-                grade = null; Console.WriteLine("Zla wartość oceny");
+                this.AddGrade(charresult);
             }
-           
+            //else if (true)
+            else
+            {
+                throw new Exception("Zła wartość oceny");
+            }
+
         }
         public void AddGrade(int grade)
         {
@@ -62,9 +64,10 @@ namespace ChallengeApp
             this.AddGrade(result);
         }
         public void AddGrade(char grade)
-        
-       {
-            switch(grade)
+
+<<<<<<< HEAD
+        {
+            switch (grade)
             {
                 case 'A':
                 case 'a':
@@ -94,44 +97,64 @@ namespace ChallengeApp
                 case 'q':
                     break;
                 default:
-                    Console.WriteLine( "Zła wartość znaku");
-                    break;
-
-               }
+                    throw new Exception("Zła wartość znaku");
+            }
         }
         public Statistics GetStatistics()
+=======
+            public Statistics GetStatistics()
+>>>>>>> parent of 405dff7 (GetStatistics Foreach For DoWhile Wchile)
         {
+
             var statistic = new Statistics();
+<<<<<<< HEAD
+            if (this.grades == null!)
+=======
 
             statistic.Max = float.MinValue;
             statistic.Min = float.MaxValue;
-
+            
             foreach (var grade in this.grades)
+>>>>>>> parent of 405dff7 (GetStatistics Foreach For DoWhile Wchile)
             {
-                statistic.Max = Math.Max(statistic.Max, grade);
-                statistic.Min = Math.Min(statistic.Min, grade);
-                statistic.Average += grade;
+                statistic.Max = float.MinValue;
+                statistic.Min = float.MaxValue;
+
+
+
+                foreach (var grade in this.grades)
+                {
+                    statistic.Max = Math.Max(statistic.Max, grade);
+                    statistic.Min = Math.Min(statistic.Min, grade);
+                    statistic.Average += grade;
+                }
+
+                statistic.Average /= this.grades.Count;
+
+                switch (statistic.Average)
+                {
+                    case var a when a == 100:
+                        statistic.AverageLetter = 'A'; break;
+                    case var a when a >= 80:
+                        statistic.AverageLetter = 'B'; break;
+                    case var a when a >= 60:
+                        statistic.AverageLetter = 'C'; break;
+                    case var a when a >= 40:
+                        statistic.AverageLetter = 'D'; break;
+                    case var a when a >= 20:
+                        statistic.AverageLetter = 'E'; break;
+                    default:
+                        statistic.AverageLetter = 'F'; break;
+
+                }
             }
+<<<<<<< HEAD
+=======
 
             statistic.Average /= this.grades.Count;
-
-            switch (statistic.Average)
-            {
-                case var a when a == 100:
-                    statistic.AverageLetter = 'A'; break;
-                case var a when a >= 80:
-                    statistic.AverageLetter = 'B'; break;
-                case var a when a >= 60:
-                    statistic.AverageLetter = 'C'; break;
-                case var a when a >= 40:
-                    statistic.AverageLetter = 'D'; break;
-                case var a when a >= 20:
-                    statistic.AverageLetter = 'E'; break;
-                default:
-                    statistic.AverageLetter = 'F'; break;
-
-            }
+>>>>>>> parent of 405dff7 (GetStatistics Foreach For DoWhile Wchile)
             return statistic;
-        }        
+        }
     }
 }
+
