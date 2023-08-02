@@ -62,7 +62,39 @@ namespace ChallengeApp.Tests
             var statistics = employee1.GetStatistics();
 
             //Assert
-           Assert.AreEqual(3.5f, statistics.Average);
+            Assert.AreEqual(3.5f, statistics.Average);
+
+        }
+        [Test]
+        public void ValueStatisticImputLeterTest()
+        {
+            //Arrange
+
+            var employee1 = new Employee("Andzej", "Kowalski");
+            employee1.AddGrade("A");
+            employee1.AddGrade('f');
+
+            //Act
+            var statistics = employee1.GetStatistics();
+
+            //Assert
+            Assert.AreEqual(50, statistics.Average);
+
+        }
+        [Test]
+        public void ValueStatisticOutputLeterTest()
+        {
+            //Arrange
+
+            var employee1 = new Employee("Andzej", "Kowalski");
+            employee1.AddGrade("A");
+            employee1.AddGrade('E');
+
+            //Act
+            var statistics = employee1.GetStatistics();
+
+            //Assert
+            Assert.AreEqual('C', statistics.AverageLetter);
 
         }
     }
