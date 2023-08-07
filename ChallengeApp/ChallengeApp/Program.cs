@@ -23,7 +23,7 @@ while (true)
     {
         employee.AddGrade(input);
     }
-    catch(Exception ex) 
+    catch (Exception ex)
     {
         Console.WriteLine($"Catch Exception: {ex.Message}");
     }
