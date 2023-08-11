@@ -3,20 +3,26 @@ using System.Data;
 
 namespace ChallengeApp
 {
-    public class Employee :Person
+    public class Employee :  IEmployee
     {
         private List<float> grades = new List<float>();
        public Employee(string name, string surname)
-                       : base(name, surname)
 
         {
+            this.Name = name;
+            this.Surname = surname; 
         }
 
         public Employee(string name, string surname, int age, char sex)
-            :base(name,surname,age,sex)
         {
+            this.Name = name;
+            this.Surname = surname;
+
         }
-        
+
+        public string Name { get; private set; }
+        public string Surname { get; private set; }
+
         public void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
@@ -134,6 +140,31 @@ namespace ChallengeApp
                 }
             }
             return statistic; 
+        }
+
+        void IEmployee.AddGrade(int grade)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IEmployee.AddGrade(float grade)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IEmployee.AddGrade(char grade)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IEmployee.AddGrade(string grade)
+        {
+            throw new NotImplementedException();
+        }
+
+        Statistics IEmployee.GetStatistics()
+        {
+            throw new NotImplementedException();
         }
     }
 }
