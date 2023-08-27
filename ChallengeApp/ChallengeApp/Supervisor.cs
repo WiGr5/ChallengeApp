@@ -92,7 +92,10 @@ namespace ChallengeApp
 
         }
 
-
+        public void AddGrade(double grade)
+        {
+            throw new NotImplementedException();
+        }
 
         public Statistics GetStatistics()
         {

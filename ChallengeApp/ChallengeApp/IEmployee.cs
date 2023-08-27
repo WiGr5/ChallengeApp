@@ -12,6 +12,8 @@ namespace ChallengeApp
         string Surname { get; }
         void AddGrade(int grade);
         void AddGrade(float grade);
+        void AddGrade(double grade);
+
         void AddGrade(char grade);
         void AddGrade(string grade);
 
