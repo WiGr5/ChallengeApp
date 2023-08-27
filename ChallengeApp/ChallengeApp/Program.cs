@@ -1,13 +1,11 @@
 ﻿using ChallengeApp;
 
-var supervisor = new Supervisor();
-//var employee = new Employee("Adam","Adam");
-Console.WriteLine("Welkome in program statistic Supervisior");
+var employee = new Employee();
+Console.WriteLine("Welkome in program statistic emploers");
 Console.WriteLine("=====================================");
-//Console.WriteLine("Wprowadz ocene wartościową lub literową ");
-//Console.WriteLine("Ocena wartosciowa: 0 - 100");
-//Console.WriteLine("Ocena liteowa: A-100, B-80, C-60, D-40, E-20, F-0.");
-Console.WriteLine("Wprowadz ocenę 1 - 6 i +/-  ");
+Console.WriteLine("Wprowadz ocene wartościową lub literową ");
+Console.WriteLine("Ocena wartosciowa: 0 - 100");
+Console.WriteLine("Ocena liteowa: A-100, B-80, C-60, D-40, E-20, F-0.");
 
 while (true)
 {
@@ -23,7 +21,7 @@ while (true)
 
     try
     {
-        supervisor.AddGrade(input);
+        employee.AddGrade(input);
     }
     catch (Exception ex)
     {
@@ -31,7 +29,7 @@ while (true)
     }
 
 }
-var statistic = supervisor.GetStatistics();
+var statistic = employee.GetStatistics();
 Console.WriteLine($"Najniższ ocena pracownika: {statistic.Min}");
 Console.WriteLine($"Najwyższa ocena pracownika: {statistic.Max}");
 Console.WriteLine($"Pracownik otrzymał srednią ilosc {statistic.Average:N2} punktów i otrzymuje ocene: {statistic.AverageLetter}");
