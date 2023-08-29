@@ -90,7 +90,7 @@
         {
 
             var statistic = new Statistics();
-            if (this.grades == null!)
+          //  if (this.grades == null!)
             {
                 statistic.Max = float.MinValue;
                 statistic.Min = float.MaxValue;
