@@ -1,13 +1,21 @@
 ﻿
 
+using static ChallengeApp.EmployeeBase;
+
 namespace ChallengeApp
 {
     internal class Supervisor : IEmployee
+
     {
+        public event GradeAddedDelegate GradeAdded;
+
+
         private List<float> grades = new List<float>();
 
         public string Name { get; private set; }
         public string Surname { get; private set; }
+
+
         public void AddGrade(int grade)
         {
             throw new NotImplementedException();
