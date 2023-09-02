@@ -73,6 +73,10 @@
                 default:
                     throw new Exception("Zła wartość znaku");
             }
+            if(GradeAdded != null)
+            {
+                GradeAdded(this, new EventArgs());
+            }
         }
 
         public override void AddGrade(string grade)
@@ -84,6 +88,7 @@
             else if (char.TryParse(grade, out char charresult))
             {
                 this.AddGrade(charresult);
+                
             }
             //else if (true)
             else
@@ -96,38 +101,9 @@
         {
 
             var statistic = new Statistics();
-          //  if (this.grades == null!)
+            foreach (var grade in this.grades)
             {
-                statistic.Max = float.MinValue;
-                statistic.Min = float.MaxValue;
-
-
-
-                foreach (var grade in this.grades)
-                {
-                    statistic.Max = Math.Max(statistic.Max, grade);
-                    statistic.Min = Math.Min(statistic.Min, grade);
-                    statistic.Average += grade;
-                }
-
-                statistic.Average /= this.grades.Count;
-
-                switch (statistic.Average)
-                {
-                    case var a when a == 100:
-                        statistic.AverageLetter = 'A'; break;
-                    case var a when a >= 80:
-                        statistic.AverageLetter = 'B'; break;
-                    case var a when a >= 60:
-                        statistic.AverageLetter = 'C'; break;
-                    case var a when a >= 40:
-                        statistic.AverageLetter = 'D'; break;
-                    case var a when a >= 20:
-                        statistic.AverageLetter = 'E'; break;
-                    default:
-                        statistic.AverageLetter = 'F'; break;
-
-                }
+                statistic.AddGrade(grade);
             }
             return statistic;
         }

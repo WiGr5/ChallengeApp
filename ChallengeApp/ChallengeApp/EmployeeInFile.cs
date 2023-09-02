@@ -90,9 +90,12 @@ namespace ChallengeApp
                     case 'q':
                         break;
                     default:
-                        writer.WriteLine(0);
 
                         throw new Exception("Zła wartość znaku");
+                }
+                if(GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
                 }
             }
         }
@@ -146,40 +149,11 @@ namespace ChallengeApp
         public Statistics CoutStatistic(List<float>grades)
         {
 
+           
             var statistic = new Statistics();
-
-
-           // if (grades == null!)
+            foreach (var grade in grades)
             {
-                statistic.Max = float.MinValue;
-                statistic.Min = float.MaxValue;
-
-
-
-                foreach (var grade in grades)
-                {
-                    statistic.Max = Math.Max(statistic.Max, grade);
-                    statistic.Min = Math.Min(statistic.Min, grade);
-                    statistic.Average += grade;
-                }
-
-                statistic.Average /= grades.Count;
-
-                switch (statistic.Average)
-                {
-                    case var a when a == 100:
-                        statistic.AverageLetter = 'A'; break;
-                    case var a when a >= 80:
-                        statistic.AverageLetter = 'B'; break;
-                    case var a when a >= 60:
-                        statistic.AverageLetter = 'C'; break;
-                    case var a when a >= 40:
-                        statistic.AverageLetter = 'D'; break;
-                    case var a when a >= 20:
-                        statistic.AverageLetter = 'E'; break;
-                    default:
-                        statistic.AverageLetter = 'F'; break;
-                }
+                statistic.AddGrade(grade);
             }
             return statistic;
         }
