@@ -15,11 +15,8 @@ void EmployeeGradeAdded(object sender, EventArgs args)
     Console.WriteLine("Dodano nową ocene");
 }
 
-
-
 while (true)
 {
-    //Console.WriteLine("");
     Console.WriteLine("\n Podaj ocene pracownika");
     Console.WriteLine("w Celu wyjscia z dodawania ocen wciścnij: Q ");
     var input = Console.ReadLine();

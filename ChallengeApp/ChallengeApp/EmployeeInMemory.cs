@@ -78,7 +78,6 @@
                 GradeAdded(this, new EventArgs());
             }
         }
-
         public override void AddGrade(string grade)
         {
             if (float.TryParse(grade, out float result))
@@ -87,16 +86,13 @@
             }
             else if (char.TryParse(grade, out char charresult))
             {
-                this.AddGrade(charresult);
-                
+                this.AddGrade(charresult);   
             }
-            //else if (true)
             else
             {
                 throw new Exception("Zła wartość oceny");
             }
         }
-
         public override Statistics GetStatistics()
         {
 

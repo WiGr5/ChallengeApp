@@ -10,8 +10,8 @@
         {
             get
             {
-               return this.Sum / this.Count;
-                //return this.Count == 0 ? 0 : this.Sum / this.Count; // przypadku wyjsca bez podawania zadnej wartosci srednia wynosi 0.00 a nie NaN jak to powyzej ma miejsce
+               //return this.Sum / this.Count;
+                return this.Count == 0 ? 0 : this.Sum / this.Count; // przypadku wyjsca bez podawania zadnej wartosci srednia wynosi 0.00 a nie NaN jak to powyzej ma miejsce
             }
         }
         public char AverageLetter

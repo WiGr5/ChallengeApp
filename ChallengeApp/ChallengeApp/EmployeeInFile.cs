@@ -17,7 +17,6 @@ namespace ChallengeApp
 
         public override void AddGrade(int grade)
         {
-           // float gradeint = grade;
             using (var writer = File.AppendText(fileName))
             {
                 writer.WriteLine(grade);
@@ -47,7 +46,6 @@ namespace ChallengeApp
 
         public override void AddGrade(double grade)
         {
-            //double gradedouble = (double)grade;
             using (var writer = File.AppendText(fileName))
             {
                 writer.WriteLine(grade);
